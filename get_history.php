@@ -35,9 +35,9 @@ function main()
     //$start_id = 9097165;  // GMT: Sunday, February 4, 2018 5:07:23.014 PM
     @$start_id = (int)file_get_contents('last_id.txt');
     if (!$start_id)
-        $start_id = 25177074 - 12*24*60*60;
+        $start_id = 24486275 - 10*24*60*60;
 
-    $finish_id = 25177074 - 8*24*60*60;
+    $finish_id = 24486275;
     printf("start_id = %d\n", $start_id);
     printf("finish_id = %d\n", $finish_id);
 
@@ -64,7 +64,7 @@ function main()
                 $cnt = 0;
             }
             $cnt ++;
-            $price_text .= sprintf("%d,%.2f\n", $point['time'], round($point['price'], 2));
+            $price_text .= sprintf("%d,%.2f,%.2f\n", $point['time'], round($point['price'], 2), $point['qty']);
         }
         file_put_contents('history.txt', $price_text, FILE_APPEND);
     }

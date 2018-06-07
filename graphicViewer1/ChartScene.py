@@ -22,8 +22,9 @@ class ChartScene(QGraphicsScene):
         pen = QPen(color)
         pen.setWidth(1)
         series.setPen(pen)
-        for x, y in data:
-            series.append(float(x), float(y))
+        if data:
+            for x, y in data:
+                series.append(float(x), float(y))
         self.chart.addSeries(series)
         self.chart.createDefaultAxes()
         return series

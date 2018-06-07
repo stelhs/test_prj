@@ -23,7 +23,7 @@ def loadData(start=None, end=None):
     fd.close()
     tmp = []
     for row in content.split():
-        time, price = row.split(',')
+        time, price, qty = row.split(',')
         time = int(time)
         price = float(price)
         tmp.append((time, price))
